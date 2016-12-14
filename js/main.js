@@ -105,20 +105,21 @@ function makeViz(max) {
                         var toolTipY = this.cy.baseVal.value
                         div.transition()        
                             .duration(200)      
-                            .style("opacity", .9);      
+                            .style("opacity", 1);      
                         div.html("<span class = 'companyName'>"+companyName+"</span><br/>"+moreInfo)  
                             .style("position", "absolute")
                             .style("width", 300)
-                            .style("border","solid 1px black")
+                            .style("border","solid .5px black")
                             .style("border-radius", "3px")
-                            .style("background-color", "#FF6652")
-                            .style("padding", 5)
+                            .style("background-color", "white")
+                            .style("padding", 10)
+                            .style("box-shadow", "5px 5px 5px 0px rgba(71,70,71,1)")
                             .style("left", toolTipX + 300 + "px")     
                             .style("top", toolTipY + 200 + "px");    
 
                     })
                     .on("mouseout", function() {
-                        d3.selectAll(".toolTip").style("border","none").style("background-color", "transparent").html("")
+                        d3.selectAll(".toolTip").style("border","none").style("box-shadow", "0px 0px 0px 0px rgba(71,70,71,1)").style("background-color", "transparent").html("")
                     }); 
 
             }
@@ -161,11 +162,11 @@ var xScale2 = d3.scale.linear()
     .domain([0, 160])
     .range([0, width2]);
 
-svg3.append("rect").attr("x", "0").attr("y", "0").attr("height", "100").attr("width", xScale2(157)).style("fill", "#C4ABFE");
-svg3.append("rect").attr("x", "0").attr("y", "100").attr("height", "100").attr("width", xScale2(48)).style("fill", "#2FAACE");
-svg3.append("rect").attr("x", "0").attr("y", "200").attr("height", "100").attr("width", xScale2(19)).style("fill", "#8BFEA8");
-svg3.append("rect").attr("x", "0").attr("y", "300").attr("height", "100").attr("width", xScale2(17)).style("fill", "#2966B8");
-svg3.append("rect").attr("x", "0").attr("y", "400").attr("height", "100").attr("width", xScale2(13)).style("fill", "#FF4848");
+svg3.append("rect").attr("x", "0").attr("y", "0").attr("height", "90").attr("width", xScale2(157)).style("fill", "#C4ABFE");
+svg3.append("rect").attr("x", "0").attr("y", "100").attr("height", "90").attr("width", xScale2(48)).style("fill", "#2FAACE");
+svg3.append("rect").attr("x", "0").attr("y", "200").attr("height", "90").attr("width", xScale2(19)).style("fill", "#8BFEA8");
+svg3.append("rect").attr("x", "0").attr("y", "300").attr("height", "90").attr("width", xScale2(17)).style("fill", "#2966B8");
+svg3.append("rect").attr("x", "0").attr("y", "400").attr("height", "90").attr("width", xScale2(13)).style("fill", "#FF4848");
 
 svg3.append("text").attr("x", 100).attr("y", "-65").text("Reasons for Breaches").attr("class", "subTitle");
 d3.select(".bubbleChart").append("text").attr("x", width2/2).attr("y", "0").text("Sectors of Breaches").attr("class", "subTitle");
