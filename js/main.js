@@ -27,7 +27,7 @@ var div = d3.select("body").append("div")
 //for use with csv. below is code for json
 // d3.csv("DataBreaches.csv", function(error, data) {
 
-// 	// var count = 0;
+// 	 var count = 0;
 // 	// var count2 = 0;
 
 //    data.forEach(function(d) {
