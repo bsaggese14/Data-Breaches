@@ -103,6 +103,16 @@ function makeViz(max) {
 
                         var toolTipX = this.cx.baseVal.value
                         var toolTipY = this.cy.baseVal.value
+                        var circleR = this.r.baseVal.value
+                        var xPos = 0;
+
+                        if(toolTipX > width/2) {
+                            xPos = toolTipX - circleR;
+                            console.log("greater");
+                        }
+                        else {
+                            xPos = toolTipX + 400;
+                        }
                         div.transition()        
                             .duration(200)      
                             .style("opacity", 1);      
@@ -114,8 +124,8 @@ function makeViz(max) {
                             .style("background-color", "white")
                             .style("padding", 10)
                             .style("box-shadow", "5px 5px 5px 0px rgba(71,70,71,1)")
-                            .style("left", toolTipX + 300 + "px")     
-                            .style("top", toolTipY + 200 + "px");    
+                            .style("left", xPos)     
+                            .style("top", toolTipY + 300 + "px");    
 
                     })
                     .on("mouseout", function() {
