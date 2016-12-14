@@ -167,8 +167,8 @@ svg3.append("rect").attr("x", "0").attr("y", "200").attr("height", "100").attr("
 svg3.append("rect").attr("x", "0").attr("y", "300").attr("height", "100").attr("width", xScale2(17)).style("fill", "#2966B8");
 svg3.append("rect").attr("x", "0").attr("y", "400").attr("height", "100").attr("width", xScale2(13)).style("fill", "#FF4848");
 
-svg3.append("text").attr("x", 100).attr("y", "-85").text("Reasons for Breaches");
-d3.select(".bubbleChart").append("text").attr("x", width2/2).attr("y", "0").text("Sectors of Breaches");
+svg3.append("text").attr("x", 100).attr("y", "-65").text("Reasons for Breaches").attr("class", "subTitle");
+d3.select(".bubbleChart").append("text").attr("x", width2/2).attr("y", "0").text("Sectors of Breaches").attr("class", "subTitle");
 
 svg3.append("text").attr("x", "-80").attr("y", "50").text("hacked");
 svg3.append("text").attr("x", "-100").attr("y", "150").text("lost/stolen");

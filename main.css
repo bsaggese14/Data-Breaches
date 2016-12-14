@@ -1,9 +1,12 @@
   body { 
             font-family: 'Raleway', sans-serif;
-
+            margin: 50px;
         }
         .header {
             padding: 50px;
+        }
+        .subTitle {
+            font-size: 30;
         }
         path { 
             stroke: steelblue;
