@@ -40,6 +40,7 @@
             fill: orange;
             stroke: black;
             stroke-width: 1px;
+            cursor: pointer;
         }
         .header {
             text-align: center;
@@ -89,7 +90,7 @@
         }
         .slideDiv {
             position: fixed;
-            top: 100;
+            top: 300;
             left: 50;
         }
         li {

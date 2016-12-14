@@ -114,7 +114,7 @@ function makeViz(max) {
                             .style("background-color", "#FF6652")
                             .style("padding", 5)
                             .style("left", toolTipX + 300 + "px")     
-                            .style("top", toolTipY + 300 + "px");    
+                            .style("top", toolTipY + 200 + "px");    
 
                     })
                     .on("mouseout", function() {
