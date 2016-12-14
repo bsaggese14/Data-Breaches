@@ -1,0 +1,368 @@
+<html>
+
+<head>
+	<script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600,200italic,600italic&subset=latin,vietnamese' rel='stylesheet' type='text/css'>
+
+      <script src="http://phuonghuynh.github.io/js/bower_components/jquery/dist/jquery.min.js"></script>
+      <script src="http://phuonghuynh.github.io/js/bower_components/d3/d3.min.js"></script>
+      <script src="http://phuonghuynh.github.io/js/bower_components/d3-transform/src/d3-transform.js"></script>
+      <script src="http://phuonghuynh.github.io/js/bower_components/cafej/src/extarray.js"></script>
+      <script src="http://phuonghuynh.github.io/js/bower_components/cafej/src/misc.js"></script>
+      <script src="http://phuonghuynh.github.io/js/bower_components/cafej/src/micro-observer.js"></script>
+      <script src="http://phuonghuynh.github.io/js/bower_components/microplugin/src/microplugin.js"></script>
+      <script src="http://phuonghuynh.github.io/js/bower_components/bubble-chart/src/bubble-chart.js"></script>
+      <script src="http://phuonghuynh.github.io/js/bower_components/bubble-chart/src/plugins/central-click/central-click.js"></script>
+      <script src="http://phuonghuynh.github.io/js/bower_components/bubble-chart/src/plugins/lines/lines.js"></script>
+            
+        <script src="index2.js"></script>
+
+	<style>
+        body { 
+            font-family: 'Raleway', sans-serif;
+
+        }
+        .header {
+            padding: 50px;
+        }
+        path { 
+            stroke: steelblue;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .axis path,
+        .axis line {
+            fill: none;
+            stroke: grey;
+            stroke-width: 1;
+            shape-rendering: crispEdges;
+        }
+        .mainViz {
+            margin: auto;
+        }
+		.mainViz svg {
+			padding: 200px 100px 200px 200px;
+            width: 60%;
+            display: block;
+            margin: auto;
+
+		}
+        .mainViz circle {
+            opacity: .2;
+            fill: blue;
+        }
+        .mainViz circle:hover {
+            opacity: .8;
+            fill: orange;
+            stroke: black;
+            stroke-width: 1px;
+        }
+        .header {
+            text-align: center;
+        }
+        .companyName {
+            font-size: 20;
+            font-weight: bold;
+        }
+        .bubbleChart {
+          min-width: 100px;
+          max-width: 100%;
+          height: 700px;
+          background: white;
+          width: 40%;
+          float: left;
+
+        }
+        .bubbleChart svg{
+            width: 100%;
+        }
+        .thirdViz {
+            width: 45%;
+            float: left;
+        }
+        .thirdViz svg {
+            padding: 100 50 50 200;
+        }
+        .thirdViz rect {
+            opacity: .5;
+        }
+        .discussion1 {
+            width: 40%;
+            padding: 100px;
+            float: left;
+        }
+        .discussion2 {
+            padding-top: 100px;
+            width: 40%;
+            float: left;
+        } 
+        .clear {
+            clear: both;
+        }
+        .middle {
+            width: 90%;
+            margin: auto;
+        }
+        .slideDiv {
+            position: fixed;
+            top: 100;
+            left: 50;
+        }
+        li {
+            padding-bottom: 20px;
+        }
+        .absolute {
+            position: absolute;
+        }
+        .footer {
+            clear: both;
+            text-align: center;
+
+        }
+        .footer p {
+            font-size: 8px;
+        }
+        a {
+            color: black;
+        }
+	</style>
+</head>
+
+<body>
+    <div class = "header">
+        <h1>Is Your Data Safe?</h1>
+        <h2>Approx. 3.2 Billion People use the internet </h2>
+        <h3>Approx. $400 Billion lost in cyber attacks annually</h3>
+    </div>
+
+    
+    <div class = "slideDiv tempDiv">Change Scale<input id="changeScale" type ="range" min ="0" max="500000000" step ="1000" value ="500000000"/><div class = "sliderInput">500,000,000</div></div>
+    <div class = "mainViz"></div>
+
+    <div class = "middle">    
+        <div class="bubbleChart"></div>
+        <div class = "discussion1">
+            <ul>
+                <li>The majority of data breach victims surveyed, 81 percent, report they had neither a system nor a managed security service in place to ensure they could self-detect data breaches, relying instead on notification from an external party. This was the case despite the fact that self-detected breaches take just 14.5 days to contain from their intrusion date, whereas breaches detected by an external party take an average of 154 days to contain.
+                    - "2015 Trustwave Global Security Report" | Trustwave </li>
+                <li>27% of respondents said his/her organization do not plan to increase cyber security awareness training for staff this
+                    year in light of recent breaches and 14% were unsure. - "2015 Global Cybersecurity Status Report" | ISACA International </li>
+                <li>51% of respondents are equally concerned about a physical attack and a cyber attack on a national level equally.  - "2015 Global Cybersecurity Status Report" | ISACA International</li>
+            </ul>
+        </div>
+
+        <div class = "clear"></div>
+        <div class = "discussion2">
+            <ul>
+                <li>74 percent of CISOs are concerned about employees stealing sensitive company information.
+                    - "SANS 2015 Survey on Insider Threats" | SpectorSoft</li>
+                <li>Only 38 percent of global organizations claim they are prepared to handle a sophisticated cyberattack. <br>
+                     - "2015 Global Cybersecurity Status Report" | ISACA International </li>
+                <li> At least 52 percent of respondents felt that a successful cyberattack against their network would take place within the year.
+                    - "2015 Cyberthreat Defense Report" | CyberEdge Group</li>
+            </ul>
+        </div>
+        <div class = "thirdViz"></div>
+
+    </div>
+    <div class = "footer">
+        <a href = "final.pages"><h1>Discussion (Download Essay)</h1></a>
+       <p> The first data viz was coded from scratch using javascript and the d3 library. It uses data aggregated by informationisbeautiful.net and is available here: https://docs.google.com/spreadsheets/d/1Je-YUdnhjQJO_13r8iTeRxpU2pBKuV6RVRHoYCgiMfg/edit#gid=3 <br>
+        The second data viz was coded using the bubble-chart d3 libray available here: https://github.com/phuonghuynh/bubble-chart
+        The third data viz was coded from scratch using javascript and the d3 library. Facts were displayed from http://www.isaca.org/cyber/Documents/2015-US-Data-Sheet-for-Global-Cybersecurity-Status-Report_mkt_Eng_0115.pdf and https://swimlane.com/10-hard-hitting-cyber-security-statistics/ </p>
+    </div>
+</body>
+
+
+<script>
+
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+var width = 700
+	height = 500
+
+svg = d3.select(".mainViz").append("svg")
+	.attr("width", width)
+    .attr("height", height);
+
+var xScale = d3.scale.linear()
+    .domain([2004, 2016])
+    .range([0, width]);
+
+
+var xAxis = d3.svg.axis().scale(xScale).orient("bottom").tickFormat(d3.format("d"));
+
+svg.append("text").attr("x", width/2 - 150).attr("y", -150).text("Data Breaches (2004-Present)");
+svg.append("g").attr("class", "axis").attr("transform", "translate(0, "+height+")").call(xAxis);
+svg.append("text").attr("x", 0).attr("transform", "translate(-150, 0)").attr("y", -30).text("# Accounts Compromised");
+
+var div = d3.select("body").append("div")   
+    .attr("class", "tooltip")               
+    .style("opacity", 0);// load data
+
+//for use with csv. below is code for json
+// d3.csv("DataBreaches.csv", function(error, data) {
+
+// 	// var count = 0;
+// 	// var count2 = 0;
+
+//    data.forEach(function(d) {
+    
+//     var numStolen = parseInt(d["metric_001"])
+//     var reason = d["type"]
+//     var sector = d["category"]
+//     var companyName = d["name"]
+//     var moreInfo = d["notes"]
+//     //0 = 2004, 
+//     var year = parseInt(d["primaryvalue"])+2004;
+//      $("body").append('{"year": "'+year+'", "sector": "'+sector+'", "companyName": "'+companyName+'", "numStolen": "'+numStolen+'", "reason": "'+reason+'", "moreInfo": "'+moreInfo+'"},<br>');
+
+ //    count++;
+
+ //  });
+
+ // });
+
+function makeViz(max) {
+
+    d3.selectAll(".mainCircle").remove();
+    d3.selectAll(".yaxis").remove();
+    var rScale = d3.scale.linear()
+    .domain([0, max])
+    .range([5,100]);
+
+    var yScale = d3.scale.linear()
+    .domain([0, max])
+    .range([height, 0]);
+
+    var yAxis = d3.svg.axis().scale(yScale).orient("left");
+    svg.append("g").attr("class", "axis yaxis").attr("transform", "translate(-50, 0)").call(yAxis);
+
+    d3.json("breaches.json", function(error, json) {
+        json["breaches"].forEach(function(entry) {
+
+            var numStolen = parseInt(entry["numStolen"])
+            var reason = entry["reason"]
+            var sector = entry["sector"]
+            var companyName = entry["companyName"]
+            var moreInfo = entry["moreInfo"]
+            var year = parseInt(entry["year"]);
+
+            if(numStolen <= max) {
+                svg.append("circle")
+                    .attr("class", "mainCircle")
+                    .attr("cx", function() {
+                        if (!isNaN(year)) {
+                            return xScale(year)
+                        }
+                        else {
+                           // console.log("yearErr: "+year)
+                        }
+                    })
+                    .attr("cy", function() {
+                        if(!isNaN(numStolen)) {
+                            return yScale(numStolen)
+                        }
+                        else {
+                            //console.log("numstolen error: "+numStolen)
+                        }        
+                    })
+                    .attr("r", function() {
+                        if(!isNaN(numStolen)) {
+                            return rScale(numStolen)
+                        }
+                        else {
+                            //console.log("numstolen error: "+numStolen)
+                        }
+                    })
+                    .on("mouseover", function() {
+
+                        var toolTipX = this.cx.baseVal.value
+                        var toolTipY = this.cy.baseVal.value
+                        div.transition()        
+                            .duration(200)      
+                            .style("opacity", .9);      
+                        div.html("<span class = 'companyName'>"+companyName+"</span><br/>"+moreInfo)  
+                            .style("position", "absolute")
+                            .style("width", 300)
+                            .style("border","solid 1px black")
+                            .style("border-radius", "3px")
+                            .style("background-color", "#FF6652")
+                            .style("padding", 5)
+                            .style("left", toolTipX + 300 + "px")     
+                            .style("top", toolTipY + 200 + "px");    
+
+                    })
+                    .on("mouseout", function() {
+                        d3.selectAll(".toolTip").style("border","none").style("background-color", "transparent").html("")
+                    }); 
+
+            }
+        })
+    });
+}
+makeViz(500000000);
+$("#changeScale").on("input change", function() {
+    $(".sliderInput").html(numberWithCommas($("#changeScale").val()))
+    makeViz($("#changeScale").val());
+});
+
+$(window).scroll(function() {
+    if($(window).scrollTop() > 800) {
+        $(".tempDiv").removeClass("slideDiv")
+        $(".tempDiv").addClass("absolute")
+
+    }
+    else {
+        $(".tempDiv").addClass("slideDiv")
+        $(".tempDiv").removeClass("absolute")
+
+    }
+})
+
+
+var width2 = 500
+    height2 = 500
+
+svg3 = d3.select(".thirdViz").append("svg")
+    .attr("width", width2)
+    .attr("height", height2);
+
+
+
+var reasonsList = {"lost / stolen": 48, "poor security": 13, "hacked": 157, "accidentally published": 19, "inside job": 17}
+var reasonsListValues = [48,13,157,19,17]
+var sectorList = {"web": 92, "financial": 41, "retail": 17, "government": 46, "academic": 9, "healthcare": 39, "military": 18, "telecoms": 9, "gaming": 11} 
+var xScale2 = d3.scale.linear()
+    .domain([0, 160])
+    .range([0, width2]);
+
+svg3.append("rect").attr("x", "0").attr("y", "0").attr("height", "100").attr("width", xScale2(157)).style("fill", "#C4ABFE");
+svg3.append("rect").attr("x", "0").attr("y", "100").attr("height", "100").attr("width", xScale2(48)).style("fill", "#2FAACE");
+svg3.append("rect").attr("x", "0").attr("y", "200").attr("height", "100").attr("width", xScale2(19)).style("fill", "#8BFEA8");
+svg3.append("rect").attr("x", "0").attr("y", "300").attr("height", "100").attr("width", xScale2(17)).style("fill", "#2966B8");
+svg3.append("rect").attr("x", "0").attr("y", "400").attr("height", "100").attr("width", xScale2(13)).style("fill", "#FF4848");
+
+svg3.append("text").attr("x", 100).attr("y", "-85").text("Reasons for Breaches");
+d3.select(".bubbleChart").append("text").attr("x", width2/2).attr("y", "0").text("Sectors of Breaches");
+
+svg3.append("text").attr("x", "-80").attr("y", "50").text("hacked");
+svg3.append("text").attr("x", "-100").attr("y", "150").text("lost/stolen");
+svg3.append("text").attr("x", "-190").attr("y", "250").text("accidentally published");
+svg3.append("text").attr("x", "-100").attr("y", "350").text("inside job");
+svg3.append("text").attr("x", "-120").attr("y", "450").text("poor security");
+
+svg3.append("text").attr("x", xScale2(157)/2).attr("y", "50").text("157");
+svg3.append("text").attr("x", xScale2(48)/2).attr("y", "150").text("48");
+svg3.append("text").attr("x", xScale2(19)/2).attr("y", "250").text("19");
+svg3.append("text").attr("x", xScale2(17)/2).attr("y", "350").text("17");
+svg3.append("text").attr("x", xScale2(13)/2).attr("y", "450").text("13");
+
+</script>
+</html>
