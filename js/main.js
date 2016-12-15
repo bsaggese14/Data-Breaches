@@ -51,30 +51,6 @@ function makeViz(max) {
             if(numStolen <= max) {
                 svg.append("circle")
                     .attr("class", "mainCircle")
-                    .attr("cx", function() {
-                        if (!isNaN(year)) {
-                            return xScale(year)
-                        }
-                        else {
-                           // console.log("yearErr: "+year)
-                        }
-                    })
-                    .attr("cy", function() {
-                        if(!isNaN(numStolen)) {
-                            return yScale(numStolen)
-                        }
-                        else {
-                            //console.log("numstolen error: "+numStolen)
-                        }        
-                    })
-                    .attr("r", function() {
-                        if(!isNaN(numStolen)) {
-                            return rScale(numStolen)
-                        }
-                        else {
-                            //console.log("numstolen error: "+numStolen)
-                        }
-                    })
                     .on("mouseover", function() {
 
                         var toolTipX = this.cx.baseVal.value
@@ -106,8 +82,31 @@ function makeViz(max) {
                     })
                     .on("mouseout", function() {
                         d3.selectAll(".toolTip").style("border","none").style("box-shadow", "0px 0px 0px 0px rgba(71,70,71,1)").style("background-color", "transparent").html("")
-                    }); 
-
+                    })
+                    .attr("cx", function() {
+                        if (!isNaN(year)) {
+                            return xScale(year)
+                        }
+                        else {
+                           // console.log("yearErr: "+year)
+                        }
+                    })
+                    .attr("cy", function() {
+                        if(!isNaN(numStolen)) {
+                            return yScale(numStolen)
+                        }
+                        else {
+                            //console.log("numstolen error: "+numStolen)
+                        }        
+                    })
+                    .attr("r", function() {
+                        if(!isNaN(numStolen)) {
+                            return rScale(numStolen)
+                        }
+                        else {
+                            //console.log("numstolen error: "+numStolen)
+                        }
+                    });
             }
         })
     });
