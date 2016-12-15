@@ -1,7 +1,6 @@
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
-
 var width = 700
 	height = 500
 
@@ -23,29 +22,6 @@ svg.append("text").attr("x", 0).attr("transform", "translate(-150, 0)").attr("y"
 var div = d3.select("body").append("div")   
     .attr("class", "tooltip")               
     .style("opacity", 0);// load data
-
-//for use with csv. below is code for json
-// d3.csv("DataBreaches.csv", function(error, data) {
-
-// 	 var count = 0;
-// 	// var count2 = 0;
-
-//    data.forEach(function(d) {
-    
-//     var numStolen = parseInt(d["metric_001"])
-//     var reason = d["type"]
-//     var sector = d["category"]
-//     var companyName = d["name"]
-//     var moreInfo = d["notes"]
-//     //0 = 2004, 
-//     var year = parseInt(d["primaryvalue"])+2004;
-//      $("body").append('{"year": "'+year+'", "sector": "'+sector+'", "companyName": "'+companyName+'", "numStolen": "'+numStolen+'", "reason": "'+reason+'", "moreInfo": "'+moreInfo+'"},<br>');
-
- //    count++;
-
- //  });
-
- // });
 
 function makeViz(max) {
 
@@ -138,23 +114,9 @@ function makeViz(max) {
 }
 makeViz(500000000);
 $("#changeScale").on("input change", function() {
-    $(".sliderInput").html(numberWithCommas($("#changeScale").val()))
+    //$(".sliderInput").html(numberWithCommas($("#changeScale").val()))
     makeViz($("#changeScale").val());
 });
-
-$(window).scroll(function() {
-    if($(window).scrollTop() > 800) {
-        $(".tempDiv").removeClass("slideDiv")
-        $(".tempDiv").addClass("absolute")
-
-    }
-    else {
-        $(".tempDiv").addClass("slideDiv")
-        $(".tempDiv").removeClass("absolute")
-
-    }
-})
-
 
 var width2 = 500
     height2 = 500
@@ -174,21 +136,57 @@ var xScale2 = d3.scale.linear()
 
 svg3.append("rect").attr("x", "0").attr("y", "0").attr("height", "90").attr("width", xScale2(157)).style("fill", "#C4ABFE");
 svg3.append("rect").attr("x", "0").attr("y", "100").attr("height", "90").attr("width", xScale2(48)).style("fill", "#2FAACE");
-svg3.append("rect").attr("x", "0").attr("y", "200").attr("height", "90").attr("width", xScale2(19)).style("fill", "#8BFEA8");
-svg3.append("rect").attr("x", "0").attr("y", "300").attr("height", "90").attr("width", xScale2(17)).style("fill", "#2966B8");
+svg3.append("rect").attr("x", "0").attr("y", "200").attr("height", "90").attr("width", xScale2(17)).style("fill", "#8BFEA8");
+svg3.append("rect").attr("x", "0").attr("y", "300").attr("height", "90").attr("width", xScale2(19)).style("fill", "#2966B8");
 svg3.append("rect").attr("x", "0").attr("y", "400").attr("height", "90").attr("width", xScale2(13)).style("fill", "#FF4848");
 
 svg3.append("text").attr("x", 100).attr("y", "-65").text("Reasons for Breaches").attr("class", "subTitle");
-d3.select(".bubbleChart").append("text").attr("x", width2/2).attr("y", "0").text("Sectors of Breaches").attr("class", "subTitle");
+d3.select(".bubbleChart").append("text").attr("x", width2/2).attr("y", "0").text("Sectors of Breaches (Data from above)").attr("class", "subTitle");
 
 svg3.append("text").attr("x", "-80").attr("y", "50").text("hacked");
-svg3.append("text").attr("x", "-100").attr("y", "150").text("lost/stolen");
-svg3.append("text").attr("x", "-190").attr("y", "250").text("accidentally published");
-svg3.append("text").attr("x", "-100").attr("y", "350").text("inside job");
-svg3.append("text").attr("x", "-120").attr("y", "450").text("poor security");
+svg3.append("text").attr("x", "-120").attr("y", "150").text("lost hard drive ");
+svg3.append("text").attr("x", "-100").attr("y", "250").text("inside job");
+svg3.append("text").attr("x", "-190").attr("y", "350").text("accidentally published");
+svg3.append("text").attr("x", "-180").attr("y", "450").text("weak/no encryption");
 
 svg3.append("text").attr("x", xScale2(157)/2).attr("y", "50").text("157");
 svg3.append("text").attr("x", xScale2(48)/2).attr("y", "150").text("48");
-svg3.append("text").attr("x", xScale2(19)/2).attr("y", "250").text("19");
-svg3.append("text").attr("x", xScale2(17)/2).attr("y", "350").text("17");
-svg3.append("text").attr("x", xScale2(13)/2).attr("y", "450").text("13");
+svg3.append("text").attr("x", xScale2(17)/2-10).attr("y", "250").text("17");
+svg3.append("text").attr("x", xScale2(19)/2-10).attr("y", "350").text("19");
+svg3.append("text").attr("x", xScale2(13)/2-10).attr("y", "450").text("13");
+
+//for use with csv. below is code for json
+// d3.csv("DataBreaches.csv", function(error, data) {
+
+//   var count = 0;
+//  // var count2 = 0;
+
+//    data.forEach(function(d) {
+    
+//     var numStolen = parseInt(d["metric_001"])
+//     var reason = d["type"]
+//     var sector = d["category"]
+//     var companyName = d["name"]
+//     var moreInfo = d["notes"]
+//     //0 = 2004, 
+//     var year = parseInt(d["primaryvalue"])+2004;
+//      $("body").append('{"year": "'+year+'", "sector": "'+sector+'", "companyName": "'+companyName+'", "numStolen": "'+numStolen+'", "reason": "'+reason+'", "moreInfo": "'+moreInfo+'"},<br>');
+
+ //    count++;
+
+ //  });
+
+ // });
+
+//$(window).scroll(function() {
+//     if($(window).scrollTop() > 700) {
+//         $(".tempDiv").removeClass("slideDiv")
+//         $(".tempDiv").addClass("absolute")
+
+//     }
+//     else {
+//         $(".tempDiv").addClass("slideDiv")
+//         $(".tempDiv").removeClass("absolute")
+
+//     }
+// })
