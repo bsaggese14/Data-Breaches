@@ -1,122 +1,147 @@
-  body { 
-            font-family: 'Raleway', sans-serif;
-            margin: 50px;
-        }
-        .header {
-            padding: 50px;
-        }
-        .subTitle {
-            font-size: 30;
-        }
-        path { 
-            stroke: steelblue;
-            stroke-width: 2;
-            fill: none;
-        }
-        .axis path,
-        .axis line {
-            fill: none;
-            stroke: grey;
-            stroke-width: 1;
-            shape-rendering: crispEdges;
-        }
-        .mainViz {
-            margin: auto;
-        }
-		.mainViz svg {
-			padding: 200px 100px 200px 200px;
-            width: 60%;
-            display: block;
-            margin: auto;
+body { 
+    font-family: 'Raleway', sans-serif;
+    margin: 50px;
+}
+.header {
+    padding: 50px;
+}
+.subTitle {
+    font-size: 30;
+}
+path { 
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
+}
+.axis path,
+.axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}
+.mainViz {
+    margin: auto;
+}
+.mainViz svg {
+	padding: 200px 100px 200px 200px;
+    display: block;
+    margin: auto;
 
-		}
-        .mainViz circle {
-            opacity: .2;
-            fill: blue;
-        }
-        .mainViz circle:hover {
-            opacity: .8;
-            fill: orange;
-            stroke: black;
-            stroke-width: 1px;
-            cursor: pointer;
-        }
-        .header {
-            text-align: center;
-        }
-        .companyName {
-            font-size: 20;
-            font-weight: bold;
-        }
-        .bubbleChart {
-          min-width: 100px;
-          max-width: 100%;
-          height: 700px;
-          background: white;
-          width: 40%;
-          float: left;
+}
+.mainViz circle {
+    opacity: .2;
+    fill: blue;
+}
+.mainViz circle:hover {
+    opacity: .8;
+    fill: orange;
+    stroke: black;
+    stroke-width: 1px;
+    cursor: pointer;
+}
+.header {
+    text-align: center;
+}
+.companyName {
+    font-size: 20;
+    font-weight: bold;
+}
+.bubbleChart {
+  min-width: 100px;
+  max-width: 100%;
+  height: 700px;
+  background: white;
+  width: 40%;
+  float: left;
 
-        }
-        .bubbleChart svg{
-            width: 100%;
-        }
-        .thirdViz {
-            width: 45%;
-            float: left;
-        }
-        .thirdViz svg {
-            padding: 100 50 50 200;
-        }
-        .thirdViz rect {
-            opacity: .5;
-        }
-        .discussion1 {
-            width: 40%;
-            padding: 100px;
-            float: left;
-        }
-        .discussion2 {
-            padding-top: 100px;
-            width: 40%;
-            float: left;
-        } 
-        .clear {
-            clear: both;
-        }
-        .middle {
-            width: 90%;
-            margin: auto;
-        }
-        .slideDiv {
-            position: absolute;
-            top: 400;
-            left: 50;
-        }
-        #changeScale {
-            -webkit-transform: rotate(270deg);
-            position: absolute;
-            width: 400px;
-            top: 250;
-            left: -150;
-        }
-        li {
-            padding-bottom: 20px;
-        }
-        .absolute {
-            position: absolute;
-        }
-        .footer {
-            clear: both;
-            text-align: center;
+}
+.bubbleChart svg{
+    width: 100%;
+}
+.thirdViz {
+    width: 45%;
+    float: left;
+}
+.thirdViz svg {
+    padding: 100 50 50 200;
+}
+.thirdViz rect {
+    opacity: .5;
+}
+.discussion1 {
+    width: 40%;
+    padding: 100px;
+    float: left;
+}
+.discussion2 {
+    padding-top: 100px;
+    width: 40%;
+    float: left;
+} 
+.clear {
+    clear: both;
+}
+.middle {
+    width: 90%;
+    margin: auto;
+}
+.slideDiv {
+    position: absolute;
+    top: 400;
+    left: 50;
+}
+#changeScale {
+    -webkit-transform: rotate(270deg);
+    position: absolute;
+    width: 400px;
+    top: 250;
+    left: -150;
+}
+li {
+    padding-bottom: 20px;
+}
+.absolute {
+    position: absolute;
+}
+.footer {
+    clear: both;
+    text-align: center;
 
-        }
-        .footer p {
-            font-size: 8px;
-        }
-        a {
-            color: black;
-        }
-        .bold {
-            font-weight: bold;
-            font-size: 20;
-        }
+}
+.footer p {
+    font-size: 8px;
+}
+a {
+    color: black;
+}
+.bold {
+    font-weight: bold;
+    font-size: 20;
+}
+
+@media (max-width:1250px) {
+    .bubbleChart {
+        width: 100%;
+        margin-top: 30px;
+    }
+    .discussion1 {
+        width: 100%;
+        padding-left: 0px;
+    }
+    .discussion1 li {
+        text-align: left;
+    }
+    .middle {
+        text-align: center;
+    }
+    .thirdViz {
+        width: 100%;
+    }
+    .discussion2 {
+        width: 100%;
+    }
+    .discussion2 li {
+        text-align: left;
+    }
+}
